@@ -217,7 +217,7 @@ footer{background:var(--ink);color:#D1D5DB;margin-top:84px}
       </div>
       <div class="row2">
         <label>Email<input name="email" type="email" autocomplete="email" required></label>
-        <label>Phone <small>(optional)</small><input name="phone" type="tel" autocomplete="tel"></label>
+        <label>Phone<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required></label>
       </div>
       <label>Type of business
         <select name="type">
@@ -226,7 +226,7 @@ footer{background:var(--ink);color:#D1D5DB;margin-top:84px}
       </label>
       <label>Anything you want us to know <small>(optional)</small><textarea name="note" rows="3"></textarea></label>
       <button type="submit" class="btn">Request a demo</button>
-      <small id="formNote">This opens an email to our team with your details filled in. We only use them to contact you about Uplein.</small>
+      <small id="formNote">We use your phone number only to arrange your demo, and we will not send you ads. This opens an email to our team with your details filled in.</small>
     </form>
   </div>
 </div>
@@ -268,9 +268,10 @@ footer{background:var(--ink);color:#D1D5DB;margin-top:84px}
     e.preventDefault();
     var d = new FormData(form);
     var name = (d.get('name')||'').toString().trim(), biz = (d.get('business')||'').toString().trim(), email = (d.get('email')||'').toString().trim();
+    var phone = (d.get('phone')||'').toString().trim();
     var note = document.getElementById('formNote');
-    if(!name || !biz || !/^\S+@\S+\.\S+$/.test(email)){ note.textContent = 'Please enter your name, business name and a valid email.'; note.style.color = '#B91C1C'; return; }
-    var body = ['Name: '+name,'Business: '+biz,'Email: '+email,'Phone: '+((d.get('phone')||'').toString().trim()||'-'),'Type of business: '+d.get('type'),'','Note: '+((d.get('note')||'').toString().trim()||'-')].join('\n');
+    if(!name || !biz || !/^\S+@\S+\.\S+$/.test(email) || phone.replace(/\D/g,'').length < 10){ note.textContent = 'Please enter your name, business name, a valid email and a phone number (at least 10 digits).'; note.style.color = '#B91C1C'; return; }
+    var body = ['Name: '+name,'Business: '+biz,'Email: '+email,'Phone: '+phone,'Type of business: '+d.get('type'),'','Note: '+((d.get('note')||'').toString().trim()||'-')].join('\n');
     window.location.href = 'mailto:contact@varlein.com?subject=' + encodeURIComponent('Uplein demo request: '+biz) + '&body=' + encodeURIComponent(body);
     note.style.color = ''; note.textContent = 'If your email app did not open, write to contact@varlein.com and we will reply.';
   });
