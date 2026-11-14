@@ -235,6 +235,7 @@ header nav a{padding:12px 14px;font-size:17px;border-radius:12px}header nav a:ho
 /* hover no longer lights the whole card: only the cursor spotlight does */
 .step:hover,.card:hover,.honest li:hover{border-color:#D5D9E0;box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 10px 30px -18px rgba(55,48,163,.28)}
 .alt .card:hover{border-color:rgba(255,255,255,.14);box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 20px 40px -24px rgba(0,0,0,.7)}
+.hp{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none!important}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.js .reveal{opacity:1;transform:none}}
 @media (max-width:900px){nav{display:none}}
 @media (max-width:720px){h1{font-size:38px}h2{font-size:28px}.wrap{padding-left:18px;padding-right:18px}.hero-in{padding-top:44px;padding-bottom:56px;gap:36px}.row2{grid-template-columns:1fr}section{padding-top:60px}.demo{padding-top:56px;padding-bottom:56px}.form{padding:20px}}
@@ -367,6 +368,7 @@ header nav a{padding:12px 14px;font-size:17px;border-radius:12px}header nav a:ho
       <p class="sub">We are setting up a few early customers by hand. Tell us about your business and we will reach out for a short demo.</p>
     </div>
     <form class="form" id="demoForm" novalidate>
+      <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="row2">
         <label>Your name<input name="name" autocomplete="name" required></label>
         <label>Business name<input name="business" autocomplete="organization" required></label>
@@ -382,7 +384,7 @@ header nav a{padding:12px 14px;font-size:17px;border-radius:12px}header nav a:ho
       </label>
       <label>Anything you want us to know <small>(optional)</small><textarea name="note" rows="3"></textarea></label>
       <button type="submit" class="btn">Request a demo</button>
-      <small id="formNote">We use your phone only to set up your demo. No ads. This opens an email to our team with your details.</small>
+      <small id="formNote">We use your phone only to set up your demo. No ads.</small>
     </form>
   </div>
 </div>
@@ -447,10 +449,24 @@ header nav a{padding:12px 14px;font-size:17px;border-radius:12px}header nav a:ho
     var phone = (d.get('phone')||'').toString().trim();
     var note = document.getElementById('formNote');
     if(!name || !biz || !/^\S+@\S+\.\S+$/.test(email) || phone.replace(/\D/g,'').length < 10){ note.textContent = 'Please enter your name, business name, a valid email and a phone number (at least 10 digits).'; note.style.color = '#B91C1C'; return; }
-    var body = ['Name: '+name,'Business: '+biz,'Email: '+email,'Phone: '+phone,'Type of business: '+d.get('type'),'','Note: '+((d.get('note')||'').toString().trim()||'-')].join('\n');
-    window.location.href = 'mailto:contact@varlein.com?subject=' + encodeURIComponent('Uplein demo request: '+biz) + '&body=' + encodeURIComponent(body);
-    note.style.color = ''; note.textContent = 'If your email app did not open, write to contact@varlein.com and we will reply.';
-  });
+    var btn = form.querySelector('button[type=submit]');
+    var api = (location.hostname === 'localhost' ? 'http://localhost:3000' : 'https://uplein-app.vercel.app') + '/api/lead';
+    var payload = {source:'uplein', name:name, business:biz, email:email, phone:phone, type:(d.get('type')||'').toString(), message:(d.get('note')||'').toString().trim(), website:(d.get('website')||'').toString()};
+    btn.disabled = true; var label = btn.textContent; btn.textContent = 'Sending...'; note.style.color = ''; note.textContent = '';
+    var ctl = new AbortController(); var timer = setTimeout(function(){ ctl.abort(); }, 15000);
+    fetch(api, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload), signal:ctl.signal})
+      .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ return {ok:r.ok, body:j}; }); })
+      .then(function(res){
+        if(res.ok){
+          form.innerHTML = '<div style="text-align:center;padding:24px 8px"><div style="width:52px;height:52px;border-radius:50%;background:#A3E635;margin:0 auto 16px;display:flex;align-items:center;justify-content:center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17L4 12"/></svg></div><h3 style="margin:0 0 8px;font-size:22px">Thank you!</h3><p style="margin:0;color:#4B5563">We got your request and will reach out soon to set up your demo.</p></div>';
+        } else {
+          btn.disabled = false; btn.textContent = label;
+          note.style.color = '#B91C1C';
+          note.textContent = (res.body && res.body.error) ? res.body.error : 'We could not send your request. Please email contact@varlein.com.';
+        }
+      })
+      .catch(function(){ btn.disabled = false; btn.textContent = label; note.style.color = '#B91C1C'; note.textContent = 'We could not send your request. Please check your connection, or email contact@varlein.com.'; })
+      .then(function(){ clearTimeout(timer); });  });
 })();
 </script>
 <script>
