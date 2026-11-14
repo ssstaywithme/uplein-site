@@ -180,6 +180,18 @@ nav a.active{color:var(--ink)}nav a.active::after{transform:scaleX(1)}
 .hero-copy>*:nth-child(6){animation-delay:.4s}
 @media (max-width:900px){h1{font-size:52px}}
 @media (max-width:720px){h1{font-size:38px}.hero-in{padding-top:104px;padding-bottom:48px}.stats{margin-top:8px}.stat b{font-size:38px}section.band{padding:60px 0}header .bar{padding:6px 8px 6px 16px}header .btn{padding:10px 16px;white-space:nowrap}}
+/* smooth hand-over between sections */
+.step .num{color:#fff}
+#how{background:linear-gradient(180deg,#0B0F19,rgba(11,15,25,0) 130px),#fff;padding-top:150px}
+.band.light{background:linear-gradient(180deg,#fff,rgba(255,255,255,0) 110px),#F3F4F6}
+.alt{background:linear-gradient(180deg,#F3F4F6,rgba(243,244,246,0) 130px),linear-gradient(180deg,#0B0F19,#111827)}
+.alt section.wrap{padding-top:150px}
+#honest{background:linear-gradient(180deg,#111827,rgba(17,24,39,0) 130px),#fff;padding-top:150px}
+.demo{margin-top:0;padding-top:150px;background:linear-gradient(180deg,#fff,rgba(255,255,255,0) 130px),var(--brand)}
+#faq{background:linear-gradient(180deg,#4F46E5,rgba(79,70,229,0) 110px),#fff;padding-top:130px}
+footer{margin-top:0;background:linear-gradient(180deg,#fff,rgba(255,255,255,0) 110px),var(--ink)}
+.foot{padding-top:130px}
+@media (max-width:720px){#how,#honest,.alt section.wrap{padding-top:110px}.demo{padding-top:110px}#faq{padding-top:100px}.foot{padding-top:100px}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.js .reveal{opacity:1;transform:none}}
 @media (max-width:900px){nav{display:none}}
 @media (max-width:720px){h1{font-size:38px}h2{font-size:28px}.wrap{padding-left:18px;padding-right:18px}.hero-in{padding-top:44px;padding-bottom:56px;gap:36px}.row2{grid-template-columns:1fr}section{padding-top:60px}.demo{padding-top:56px;padding-bottom:56px}.form{padding:20px}}
@@ -243,7 +255,7 @@ nav a.active{color:var(--ink)}nav a.active::after{transform:scaleX(1)}
   </div>
 </div>
 
-<section id="how" class="wrap">
+<section id="how" class="band"><div class="wrap">
   <p class="eyebrow">How it works</p>
   <h2>Three steps. No extra work for your team.</h2>
   <div class="steps">
@@ -251,7 +263,7 @@ nav a.active{color:var(--ink)}nav a.active::after{transform:scaleX(1)}
     <div class="step"><span class="num">2</span><b>Send a simple request</b><span>Pick a ready-made message and send it now or schedule it. A gentle reminder follows if there is no response.</span></div>
     <div class="step"><span class="num">3</span><b>See what happened</b><span>Follow sent, delivered and clicked, and mark the reviews you receive. A click is never counted as a posted review.</span></div>
   </div>
-</section>
+</div></section>
 
 <section class="band light"><div class="wrap">
   <p class="eyebrow">What you get</p>
@@ -278,7 +290,7 @@ nav a.active{color:var(--ink)}nav a.active::after{transform:scaleX(1)}
   </section>
 </div>
 
-<section id="honest" class="wrap">
+<section id="honest" class="band"><div class="wrap">
   <div class="honest">
     <div class="left">
       <p class="eyebrow">Our approach</p>
@@ -292,7 +304,7 @@ nav a.active{color:var(--ink)}nav a.active::after{transform:scaleX(1)}
       <li><i><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17L4 12"/></svg></i>A click is a click. We never claim a review was posted unless you tell us it was.</li>
     </ul>
   </div>
-</section>
+</div></section>
 
 <div id="demo" class="demo">
   <div class="wrap demo-in">
@@ -322,7 +334,7 @@ nav a.active{color:var(--ink)}nav a.active::after{transform:scaleX(1)}
   </div>
 </div>
 
-<section id="faq" class="wrap">
+<section id="faq" class="band"><div class="wrap">
   <p class="eyebrow">FAQ</p>
   <h2>Good questions.</h2>
   <div class="faq">
@@ -333,7 +345,7 @@ nav a.active{color:var(--ink)}nav a.active::after{transform:scaleX(1)}
     <details><summary>Can we stop a campaign?</summary><p>Yes. You can pause or stop a campaign at any time, and customers can unsubscribe with one click.</p></details>
     <details><summary>Who is behind Uplein?</summary><p>Uplein is a product of Varlein, a company that builds and runs its own brands and products.</p></details>
   </div>
-</section>
+</div></section>
 
 </main>
 
