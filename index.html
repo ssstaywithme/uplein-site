@@ -245,9 +245,26 @@ header nav a{padding:12px 14px;font-size:17px;border-radius:12px}header nav a:ho
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.js .reveal{opacity:1;transform:none}}
 @media (max-width:900px){nav{display:none}}
 @media (max-width:720px){h1{font-size:38px}h2{font-size:28px}.wrap{padding-left:18px;padding-right:18px}.hero-in{padding-top:116px;padding-bottom:56px;gap:36px}.row2{grid-template-columns:1fr}section{padding-top:60px}.demo{padding-top:56px;padding-bottom:56px}.form{padding:20px}}
-.langbtn{font:inherit;font-size:13px;font-weight:800;letter-spacing:.04em;border:2px solid var(--lime,#A3E635);background:#111827;color:#fff;border-radius:999px;padding:8px 12px;cursor:pointer;flex:none;margin-left:8px;line-height:1}
-.langbtn:hover{background:#1F2937}
-@media (max-width:420px){.langbtn{padding:8px 8px;margin-left:4px;font-size:12px}header .logo img:first-child{height:26px!important}header .logo img:last-child{height:8px!important}header .logo{gap:6px!important}header .bar .btn{padding:8px 10px!important;font-size:12px!important}header .menu-btn{width:34px!important;height:34px!important;flex:none}header .bar{gap:4px!important}header .bar{padding-right:6px!important}}
+.langsw{position:relative;flex:none;margin-left:8px;line-height:0}
+.lang-trigger{display:inline-flex;align-items:center;gap:5px;border:1px solid rgba(17,24,39,.18);background:#fff;color:#374151;border-radius:999px;padding:8px 10px 8px 9px;cursor:pointer;line-height:0;transition:background .2s,box-shadow .2s}
+.lang-trigger:hover{background:#F3F4F6}
+.lang-trigger .chev{transition:transform .25s cubic-bezier(.2,.7,.2,1)}
+.langsw.open .lang-trigger .chev{transform:rotate(180deg)}
+.langsw.open .lang-trigger{box-shadow:0 0 0 3px rgba(163,230,53,.45)}
+.fl{display:block;width:22px;height:15px;border-radius:3px;overflow:hidden;flex:none;box-shadow:0 0 0 1px rgba(17,24,39,.12)}
+.fl svg{display:block;width:100%;height:100%}
+.lang-menu{position:absolute;top:calc(100% + 12px);right:0;min-width:168px;margin:0;padding:6px;list-style:none;background:rgba(255,255,255,.98);border:1px solid rgba(17,24,39,.1);border-radius:18px;box-shadow:0 24px 50px -18px rgba(0,0,0,.55);line-height:1.2;opacity:0;visibility:hidden;transform:translateY(-8px) scale(.97);transform-origin:top right;transition:opacity .22s ease,transform .22s cubic-bezier(.2,.7,.2,1),visibility .22s}
+.langsw.open .lang-menu{opacity:1;visibility:visible;transform:none}
+.lang-menu li{margin:0}
+.lang-menu button{display:flex;align-items:center;gap:12px;width:100%;border:0;background:none;font:inherit;font-size:16px;font-weight:600;color:#111827;padding:11px 12px;border-radius:12px;cursor:pointer;text-align:left;opacity:0;transform:translateY(-4px);transition:background .15s,opacity .22s,transform .22s}
+.langsw.open .lang-menu button{opacity:1;transform:none}
+.langsw.open .lang-menu li:nth-child(2) button{transition-delay:.04s}
+.langsw.open .lang-menu li:nth-child(3) button{transition-delay:.08s}
+.lang-menu button:hover{background:#F3F4F6}
+.langsw[data-lang="en"] [data-set="en"],.langsw[data-lang="ru"] [data-set="ru"],.langsw[data-lang="es"] [data-set="es"]{background:#ECFCCB}
+.lang-fade{transition:opacity .17s ease,transform .17s ease}
+.lang-fade.lang-out{opacity:0;transform:translateY(3px)}
+@media (max-width:420px){.langsw{margin-left:3px}.lang-trigger{padding:7px 8px 7px 7px;gap:4px}.lang-trigger .fl{width:18px;height:12px;border-radius:2px}header .logo img:first-child{height:26px!important}header .logo img:last-child{height:8px!important}header .logo{gap:6px!important}header .bar .btn{padding:8px 10px!important;font-size:12px!important}header .menu-btn{width:34px!important;height:34px!important;flex:none}header .bar{gap:4px!important}header .bar{padding-right:6px!important}}
 </style>
 </head>
 <body>
@@ -265,7 +282,7 @@ header nav a{padding:12px 14px;font-size:17px;border-radius:12px}header nav a:ho
       <a href="#faq">FAQ</a>
     </nav>
     <a class="btn" href="#demo">Request a demo</a>
-    <button type="button" class="langbtn" id="langBtn" aria-label="Language / Язык" title="Language / Язык">RU</button>
+    <div class="langsw" id="langBtn" data-lang="en"><button type="button" class="lang-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Language / Idioma / Язык"><svg class="chev" viewBox="0 0 12 12" width="10" height="10" aria-hidden="true"><path d="M2 4.2l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="fl lang-cur"><svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#fff"/><g fill="#B22234"><rect width="30" height="1.54"/><rect y="3.08" width="30" height="1.54"/><rect y="6.15" width="30" height="1.54"/><rect y="9.23" width="30" height="1.54"/><rect y="12.31" width="30" height="1.54"/><rect y="15.38" width="30" height="1.54"/><rect y="18.46" width="30" height="1.54"/></g><rect width="12.5" height="10.77" fill="#3C3B6E"/></svg></span></button><ul class="lang-menu" role="listbox" aria-label="Language"><li><button type="button" role="option" data-set="en"><span class="fl"><svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#fff"/><g fill="#B22234"><rect width="30" height="1.54"/><rect y="3.08" width="30" height="1.54"/><rect y="6.15" width="30" height="1.54"/><rect y="9.23" width="30" height="1.54"/><rect y="12.31" width="30" height="1.54"/><rect y="15.38" width="30" height="1.54"/><rect y="18.46" width="30" height="1.54"/></g><rect width="12.5" height="10.77" fill="#3C3B6E"/></svg></span>English</button></li><li><button type="button" role="option" data-set="ru"><span class="fl"><svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="6.67" fill="#fff"/><rect y="6.67" width="30" height="6.67" fill="#0039A6"/><rect y="13.33" width="30" height="6.67" fill="#D52B1E"/></svg></span>Русский</button></li><li><button type="button" role="option" data-set="es"><span class="fl"><svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#C60B1E"/><rect y="5" width="30" height="10" fill="#FFC400"/></svg></span>Español</button></li></ul></div>
     <button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
   </div>
 </header>
@@ -486,25 +503,114 @@ header nav a{padding:12px 14px;font-size:17px;border-radius:12px}header nav a:ho
     "We could not send your request. Please email contact@varlein.com.":"Не удалось отправить заявку. Напишите на contact@varlein.com.",
     "We could not send your request. Please check your connection, or email contact@varlein.com.":"Не удалось отправить заявку. Проверьте соединение или напишите на contact@varlein.com."
   };
-  var lang = 'en', orig = new Map(), nodes = [], TITLE = document.title, TITLE_RU = 'Uplein | Больше настоящих отзывов без навязчивости';
+  var ES = {
+    "How it works":"Cómo funciona","Who it is for":"Para quién es","Our approach":"Nuestro enfoque","FAQ":"Preguntas","Request a demo":"Pedir una demo",
+    "Early access for local service businesses":"Acceso anticipado para negocios de servicios locales",
+    "More Google reviews,":"Más reseñas en Google,","without the chasing.":"sin andar insistiendo.",
+    "Uplein emails your customers a friendly review request and shows you what happened. No awkward asking.":"Uplein envía a sus clientes una solicitud amable de reseña y le muestra qué pasó. Sin pedirlo de forma incómoda.",
+    "See how it works":"Ver cómo funciona",
+    "Honest requests only":"Solo solicitudes honestas","One-click unsubscribe":"Cancelar la suscripción con un clic","Works from your phone":"Funciona desde su teléfono",
+    "Example message your customer receives":"Ejemplo del mensaje que recibe su cliente","Example":"Ejemplo",
+    "From: Your Business Name":"De: Nombre de su negocio","Thanks for choosing Your Business Name":"Gracias por elegir «Nombre de su negocio»",
+    "Hi Maria,":"Hola, María,",
+    "Thank you for choosing us. If you have a minute, we would really appreciate your honest feedback. It helps other people find us and helps us improve.":"Gracias por elegirnos. Si tiene un minuto, le agradeceríamos mucho su opinión sincera. Ayuda a otras personas a encontrarnos y a nosotros a mejorar.",
+    "Share your experience":"Comparta su experiencia","Thank you,":"Gracias,","Your Business Name":"Nombre de su negocio",
+    "Your business address · Unsubscribe":"Dirección de su negocio · Cancelar suscripción",
+    "What you see in your dashboard":"Lo que ve en su panel","Request sent":"Solicitud enviada","Delivered":"Entregado","Link clicked":"Enlace abierto","You confirm: they reviewed":"Usted confirma: dejó su reseña",
+    "Nothing to install":"Nada que instalar","Runs in your browser, on your phone or computer.":"Funciona en su navegador, en el teléfono o en la computadora.",
+    "Built to protect you":"Diseñado para protegerle","Consent records, opt-out and daily limits come built in.":"Registros de consentimiento, cancelación y límites diarios ya incluidos.",
+    "Honest by design":"Honestidad por diseño","No fake reviews, no review gating, no rewards.":"Sin reseñas falsas, sin filtrar reseñas y sin recompensas.",
+    "Three steps. Nothing to learn.":"Tres pasos. Nada que aprender.",
+    "Add your customers":"Agregue a sus clientes","Type them in or upload a list. Only people who agreed to hear from you get an email.":"Escríbalos o suba una lista. Solo reciben un correo las personas que aceptaron saber de usted.",
+    "We send the request":"Nosotros enviamos la solicitud","A short, friendly email goes out. One gentle reminder follows if they do not click.":"Sale un correo corto y amable. Si no hacen clic, sigue un recordatorio suave.",
+    "See what happened":"Vea qué pasó","See who got it and who clicked. You mark the reviews you receive.":"Vea quién lo recibió y quién hizo clic. Usted marca las reseñas que recibe.",
+    "What you get":"Lo que obtiene","Everything you need. Nothing you do not.":"Todo lo que necesita. Nada que no.",
+    "Email requests":"Solicitudes por correo","Friendly messages in your business name.":"Mensajes amables con el nombre de su negocio.",
+    "Your Google link":"Su enlace de Google","One tap and they are on your review page.":"Un toque y llegan a su página de reseñas.",
+    "QR code":"Código QR","Print it for your counter or truck.":"Imprímalo para su mostrador o camioneta.",
+    "Simple dashboard":"Panel sencillo","Sent, delivered and clicked, in one place.":"Enviados, entregados y clics, en un solo lugar.",
+    "Opt-out built in":"Cancelación incluida","Every email has an unsubscribe link.":"Cada correo trae un enlace para cancelar la suscripción.",
+    "Coming later":"Próximamente","Text messages":"Mensajes de texto","Coming once approved for your business.":"Llegarán cuando se aprueben para su negocio.",
+    "Made for businesses that serve people directly.":"Hecho para negocios que atienden directamente a las personas.",
+    "Auto repair":"Taller mecánico","Ask right after pickup, while it is fresh.":"Pida la reseña justo al entregar el auto, cuando todo está fresco.",
+    "Salons and barbers":"Salones y barberías","Turn regulars into reviews.":"Convierta a sus clientes frecuentes en reseñas.",
+    "Home services and installers":"Servicios para el hogar e instaladores","Tile, plumbing, HVAC and more. From the job site to their inbox.":"Azulejo, plomería, HVAC y más. Del lugar de trabajo directo al correo del cliente.",
+    "Only real reviews.":"Solo reseñas reales.","A review only helps when it is real. Uplein is built around that.":"Una reseña solo sirve si es real. Uplein está hecho con eso en mente.",
+    "No fake reviews, ever.":"Nunca habrá reseñas falsas.","Everyone gets the same request. We never pick by mood.":"Todos reciben la misma solicitud. Nunca elegimos según el ánimo del cliente.",
+    "No rewards or discounts for reviews.":"Sin recompensas ni descuentos por reseñas.","A click is not a review. We count one only when you confirm it.":"Un clic no es una reseña. La contamos solo cuando usted la confirma.",
+    "Early access":"Acceso anticipado","Want to see it work for your business?":"¿Quiere ver cómo funciona en su negocio?",
+    "We are setting up a few early customers by hand. Tell us about your business and we will reach out for a short demo.":"Estamos configurando a mano a unos primeros clientes. Cuéntenos de su negocio y nos pondremos en contacto para una demo corta.",
+    "Your name":"Su nombre","Business name":"Nombre del negocio","Email":"Correo electrónico","Phone":"Teléfono","Type of business":"Tipo de negocio",
+    "Salon or barbershop":"Salón o barbería","Tile or flooring installation":"Instalación de azulejo o pisos","Cabinets or remodeling":"Gabinetes o remodelación","Plumbing, HVAC or electrical":"Plomería, HVAC o electricidad","Cleaning services":"Servicios de limpieza","Other":"Otro",
+    "Anything you want us to know":"Algo más que quiera que sepamos","(optional)":"(opcional)",
+    "We use your phone only to set up your demo. No ads.":"Usamos su teléfono solo para organizar su demo. Sin publicidad.",
+    "Good questions.":"Buenas preguntas.",
+    "Does Uplein write reviews for us?":"¿Uplein escribe las reseñas por nosotros?","No. Your customers write them, in their own words.":"No. Las escriben sus clientes, con sus propias palabras.",
+    "Which review sites are supported?":"¿Qué sitios de reseñas se admiten?","Google first, with your review link and a QR code. More may follow.":"Primero Google, con su enlace de reseña y un código QR. Pueden venir más.",
+    "Do you send text messages?":"¿Envían mensajes de texto?","Email comes first. Texts follow once approved for your business, which takes some time.":"Primero el correo. Los mensajes de texto llegan cuando se aprueben para su negocio, lo cual toma tiempo.",
+    "Is there a free trial?":"¿Hay prueba gratis?","We start with a short demo and a paid pilot for early customers.":"Empezamos con una demo corta y un piloto de pago para los primeros clientes.",
+    "Can we stop a campaign?":"¿Podemos detener una campaña?","Yes, any time. Customers can also unsubscribe in one click.":"Sí, en cualquier momento. Los clientes también pueden cancelar con un clic.",
+    "Who is behind Uplein?":"¿Quién está detrás de Uplein?","Uplein is a product of Varlein, a company that builds and runs its own brands and products.":"Uplein es un producto de Varlein, una empresa que crea y administra sus propias marcas y productos.",
+    "Honest reviews for local businesses. A Varlein product.":"Reseñas honestas para negocios locales. Un producto de Varlein.","Product":"Producto","Contact":"Contacto",
+    "Uplein. All rights reserved.":"Uplein. Todos los derechos reservados.",
+    "Please enter your name, business name, a valid email and a phone number (at least 10 digits).":"Escriba su nombre, el nombre del negocio, un correo válido y un teléfono (mínimo 10 dígitos).",
+    "Sending...":"Enviando...","Thank you!":"¡Gracias!","We got your request and will reach out soon to set up your demo.":"Recibimos su solicitud y pronto nos pondremos en contacto para organizar su demo.",
+    "We could not send your request. Please email contact@varlein.com.":"No pudimos enviar su solicitud. Escriba a contact@varlein.com.",
+    "We could not send your request. Please check your connection, or email contact@varlein.com.":"No pudimos enviar su solicitud. Revise su conexión o escriba a contact@varlein.com."
+  };
+  var DICT = {ru:RU, es:ES};
+  var TITLES = {en:document.title, ru:'Uplein | Больше настоящих отзывов без навязчивости', es:'Uplein | Más reseñas reales, sin insistir'};
+  var lang = 'en', orig = new Map(), nodes = [];
   [].forEach.call(document.querySelectorAll('select option'), function(o){ o.value = o.textContent.trim(); });
   var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null), n;
   while((n = w.nextNode())){ var p = n.parentNode && n.parentNode.nodeName; if(p === 'SCRIPT' || p === 'STYLE' || !n.nodeValue.trim()) continue; nodes.push(n); orig.set(n, n.nodeValue); }
-  window.T = function(s){ return lang === 'ru' && RU[s] ? RU[s] : s; };
+  window.T = function(s){ return DICT[lang] && DICT[lang][s] ? DICT[lang][s] : s; };
   function apply(l){
     lang = l;
+    var d = DICT[l] || {};
     nodes.forEach(function(nd){
       var o = orig.get(nd), key = o.replace(/\s+/g,' ').trim();
-      if(l === 'ru' && RU[key]){ nd.nodeValue = o.match(/^\s*/)[0] + RU[key] + o.match(/\s*$/)[0]; } else { nd.nodeValue = o; }
+      if(d[key]){ nd.nodeValue = o.match(/^\s*/)[0] + d[key] + o.match(/\s*$/)[0]; } else { nd.nodeValue = o; }
     });
-    document.documentElement.lang = l; document.title = l === 'ru' ? TITLE_RU : TITLE;
-    var b = document.getElementById('langBtn'); if(b) b.textContent = l === 'ru' ? 'EN' : 'RU';
+    document.documentElement.lang = l; document.title = TITLES[l] || TITLES.en;
+    var b = document.getElementById('langBtn');
+    if(b){
+      b.setAttribute('data-lang', l);
+      var src = b.querySelector('[data-set="' + l + '"] .fl'), cur = b.querySelector('.lang-cur');
+      if(src && cur) cur.innerHTML = src.innerHTML;
+      [].forEach.call(b.querySelectorAll('[data-set]'), function(o){ o.setAttribute('aria-selected', o.getAttribute('data-set') === l ? 'true' : 'false'); });
+    }
   }
   var want = 'en';
-  try { var q = new URLSearchParams(location.search).get('lang'); want = (q === 'ru' || q === 'en') ? q : (localStorage.getItem('uplein-lang') || 'en'); } catch(e) {}
-  if(want === 'ru') apply('ru');
-  var btn = document.getElementById('langBtn');
-  if(btn) btn.addEventListener('click', function(){ var next = lang === 'ru' ? 'en' : 'ru'; apply(next); try { localStorage.setItem('uplein-lang', next); } catch(e) {} });
+  try { var q = new URLSearchParams(location.search).get('lang'); want = (q === 'ru' || q === 'es' || q === 'en') ? q : (localStorage.getItem('uplein-lang') || 'en'); } catch(e) {}
+  if(want !== 'en' && DICT[want]) apply(want);
+  /* a short, soft fade while the words change */
+  var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches, swapping = false;
+  function change(next){
+    if(next === lang || swapping) return;
+    try { localStorage.setItem('uplein-lang', next); if(location.search.indexOf('lang=') > -1) history.replaceState(null, '', location.pathname + '?lang=' + next + location.hash); } catch(e) {}
+    if(calm){ apply(next); return; }
+    swapping = true;
+    var parts = [].slice.call(document.querySelectorAll('header nav, .hero-copy, .mock-wrap, .stats, main > section, main > div:not(.hero), footer'));
+    parts.forEach(function(el){ el.classList.add('lang-fade'); });
+    requestAnimationFrame(function(){ parts.forEach(function(el){ el.classList.add('lang-out'); }); });
+    setTimeout(function(){
+      apply(next);
+      parts.forEach(function(el){ el.classList.remove('lang-out'); });
+      setTimeout(function(){ parts.forEach(function(el){ el.classList.remove('lang-fade'); }); swapping = false; }, 260);
+    }, 170);
+  }
+  var sw = document.getElementById('langBtn');
+  if(sw){
+    var trig = sw.querySelector('.lang-trigger'), hdr2 = document.querySelector('header');
+    function setOpen(o){ sw.classList.toggle('open', o); trig.setAttribute('aria-expanded', o ? 'true' : 'false'); if(o && hdr2) hdr2.classList.remove('open'); }
+    trig.addEventListener('click', function(e){ e.stopPropagation(); setOpen(!sw.classList.contains('open')); });
+    sw.addEventListener('click', function(e){ var t = e.target.closest('[data-set]'); if(t){ setOpen(false); change(t.getAttribute('data-set')); } });
+    document.addEventListener('click', function(e){ if(!sw.contains(e.target)) setOpen(false); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') setOpen(false); });
+    var mb = document.querySelector('.menu-btn'); if(mb) mb.addEventListener('click', function(){ setOpen(false); });
+  }
+  apply(lang);
 })();
 </script>
 <script>
