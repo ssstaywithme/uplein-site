@@ -311,6 +311,8 @@ header nav a{padding:12px 14px;font-size:17px;border-radius:12px}header nav a:ho
 @media (max-width:720px){#app,#team,#pilot{border-radius:26px 26px 0 0;margin-top:-26px;padding:64px 0 100px}.col{padding:22px}.pcell{padding:20px}.panel{padding:16px}.fcol a{padding:5px 0}.form .btn{width:100%;min-height:48px}.form input,.form select,.form textarea{font-size:16px}}
 /* ---- Added: watch it, three ways, industries, maker ---- */
 .mock-link{color:#2563EB;text-decoration:underline;word-break:break-all}
+#ways{position:relative;border-radius:36px 36px 0 0;margin-top:-36px;background:#fff;padding:96px 0 136px}
+@media (max-width:720px){#ways{border-radius:26px 26px 0 0;margin-top:-26px;padding:64px 0 100px}}
 @media (min-width:901px){nav{gap:20px}nav a{white-space:nowrap}header.scrolled{width:min(1000px,calc(100% - 28px))}}
 #watch{position:relative;border-radius:36px 36px 0 0;margin-top:-36px;background:linear-gradient(180deg,#0B0F19,#111827);padding:96px 0 136px;color:#fff;overflow:hidden}
 #watch h2{color:#fff}#watch .eyebrow{color:var(--lime)}#watch .sub{color:#B6BDC9}
@@ -361,7 +363,7 @@ header nav a{padding:12px 14px;font-size:17px;border-radius:12px}header nav a:ho
     <nav aria-label="Main">
       <a href="#how">How it works</a>
       <a href="#watch">Watch it</a>
-      <a href="#app">Inside the app</a>
+      
       <a href="#pilot">Paid pilot</a>
       <a href="#faq">FAQ</a>
     </nav>
@@ -465,7 +467,7 @@ header nav a{padding:12px 14px;font-size:17px;border-radius:12px}header nav a:ho
   <p class="demo-note">Real screenshots of the app, with sample data. Nothing here was sent to a real customer.</p>
 </div></section>
 
-<section id="ways" class="band light"><div class="wrap">
+<section id="ways" class="band"><div class="wrap">
   <p class="eyebrow">Three ways to ask</p>
   <h2>Ask the way that fits the moment.</h2>
   <p class="sub">The same app, all on your phone. If an email lands in a promotions or spam tab, the QR code and a text still reach your customer.</p>
@@ -475,42 +477,6 @@ header nav a{padding:12px 14px;font-size:17px;border-radius:12px}header nav a:ho
     <figure class="pcard"><div class="phone"><img src="img/app-text.jpg" alt="The text message screen in the Uplein app" loading="lazy" width="390" height="844"></div><figcaption><b>Text from your phone</b><span>Tap once and your own messages app opens with the text and link ready.</span></figcaption></figure>
   </div>
   <p class="demo-note" style="color:#4B5563">Real screenshots of the app, with sample data. Text messages sent by the app itself are coming later. Texting the link from your own phone works today.</p>
-</div></section>
-
-<section id="app"><div class="wrap">
-  <p class="eyebrow">Inside the app</p>
-  <h2>What you will see.</h2>
-  <p class="sub">A sample with made-up customers. It is not a real business and not real results.</p>
-  <div class="appdemo">
-    <div class="panel" aria-label="Sample screen: add a customer">
-      <div class="panel-top"><span>1. Add customers</span><span class="tagx">Sample data</span></div>
-      <h3>Add a customer</h3>
-      <div class="fakefield"><b>Name</b>Maria L.</div>
-      <div class="fakefield"><b>Email</b>maria@example.com</div>
-      <p>This customer agreed to be contacted by email about leaving a review.</p>
-      <div class="fakebtn">Add customer</div>
-      <div class="ways"><span>Type one in</span><span>Import a spreadsheet</span><span>Your QR code</span></div>
-    </div>
-    <div class="panel" aria-label="Sample screen: send requests">
-      <div class="panel-top"><span>2. Send requests</span><span class="tagx">Sample data</span></div>
-      <h3>Send to your customers</h3>
-      <p>Sends the message to customers who agreed, are not opted out, and were not asked in the last 30 days.</p>
-      <div class="fakefield"><b>Message</b>Thanks for choosing Your Business Name</div>
-      <div class="fakebtn">Send requests</div>
-      <p>One gentle reminder is available for people who have not opened the link.</p>
-    </div>
-    <div class="panel" aria-label="Sample screen: customer statuses">
-      <div class="panel-top"><span>3. See what happened</span><span class="tagx">Sample data</span></div>
-      <h3>Your customers</h3>
-      <ul class="rows">
-        <li><span>Maria L.</span><span class="badge b-ok">Review confirmed</span></li>
-        <li><span>Tom B.</span><span class="badge b-info">Opened the review link</span></li>
-        <li><span>Ana R.</span><span class="badge b-info">Delivered</span></li>
-        <li><span>Sam K.</span><span class="badge b-mute">Not asked yet</span></li>
-      </ul>
-    </div>
-  </div>
-  <p class="demo-note">An open is not a posted review. Reviews are counted only after you confirm them yourself. All names above are sample data.</p>
 </div></section>
 
 <section class="band light"><div class="wrap">
@@ -663,7 +629,7 @@ header nav a{padding:12px 14px;font-size:17px;border-radius:12px}header nav a:ho
       <span style="font-size:14px">Honest reviews for local businesses. A Varlein product.</span>
     </div>
     <div style="display:flex;flex-wrap:wrap;gap:56px">
-      <div class="fcol"><b>Product</b><a href="#how">How it works</a><a href="#watch">Watch it</a><a href="#app">Inside the app</a><a href="#pilot">Paid pilot</a><a href="#faq">FAQ</a></div>
+      <div class="fcol"><b>Product</b><a href="#how">How it works</a><a href="#watch">Watch it</a><a href="#pilot">Paid pilot</a><a href="#faq">FAQ</a></div>
       <div class="fcol"><b>Legal</b><a href="https://app.uplein.com/terms" target="_blank" rel="noopener">Terms</a><a href="https://app.uplein.com/privacy" target="_blank" rel="noopener">Privacy Policy</a></div>
       <div class="fcol"><b>Contact</b><a href="mailto:contact@varlein.com">contact@varlein.com</a></div>
     </div>
