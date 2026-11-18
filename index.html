@@ -309,6 +309,46 @@ header nav a{padding:12px 14px;font-size:17px;border-radius:12px}header nav a:ho
 @media (max-width:640px){#how .steps{grid-template-columns:1fr}}
 @media (max-width:720px){.faq summary{padding:12px 0;min-height:44px;align-items:center}header .bar .btn{padding-top:11px!important;padding-bottom:11px!important}.lang-trigger{padding-top:11px!important;padding-bottom:11px!important}header .menu-btn{width:38px!important;height:38px!important}}
 @media (max-width:720px){#app,#team,#pilot{border-radius:26px 26px 0 0;margin-top:-26px;padding:64px 0 100px}.col{padding:22px}.pcell{padding:20px}.panel{padding:16px}.fcol a{padding:5px 0}.form .btn{width:100%;min-height:48px}.form input,.form select,.form textarea{font-size:16px}}
+/* ---- Added: watch it, three ways, industries, maker ---- */
+.mock-link{color:#2563EB;text-decoration:underline;word-break:break-all}
+@media (min-width:901px){nav{gap:20px}nav a{white-space:nowrap}header.scrolled{width:min(1000px,calc(100% - 28px))}}
+#watch{position:relative;border-radius:36px 36px 0 0;margin-top:-36px;background:linear-gradient(180deg,#0B0F19,#111827);padding:96px 0 136px;color:#fff;overflow:hidden}
+#watch h2{color:#fff}#watch .eyebrow{color:var(--lime)}#watch .sub{color:#B6BDC9}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.tabs button{font:600 15px Inter,sans-serif;min-height:44px;padding:10px 20px;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);color:#E5E7EB;cursor:pointer;transition:background .2s,color .2s}
+.tabs button:hover{background:rgba(255,255,255,.14)}
+.tabs button[aria-selected="true"]{background:var(--lime);color:var(--ink);border-color:var(--lime)}
+.watch{display:grid;grid-template-columns:minmax(0,290px) minmax(0,1fr);gap:56px;margin-top:36px;align-items:center}
+.phone{position:relative;width:100%;max-width:280px;border-radius:38px;border:8px solid #0B0F19;background:#0B0F19;overflow:hidden;box-shadow:0 30px 70px -24px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.2)}
+.phone img{display:block;width:100%;height:auto;transition:opacity .2s}
+.tap{position:absolute;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:rgba(163,230,53,.35);border:2px solid var(--lime);pointer-events:none;animation:tapring 1.6s ease-out infinite}
+.tap[hidden]{display:none}
+@keyframes tapring{0%{transform:scale(.6);opacity:.95}70%{transform:scale(1.25);opacity:.25}100%{transform:scale(1.3);opacity:0}}
+.wside{display:grid;gap:14px;min-width:0}
+.wlist{list-style:none;margin:0;padding:0;display:none;gap:10px}
+.wlist.on{display:grid}
+.wlist li{position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.14);border-radius:16px;background:rgba(255,255,255,.04);transition:background .25s,border-color .25s}
+.wlist li.on{background:rgba(255,255,255,.1);border-color:rgba(163,230,53,.6)}
+.ws{display:block;width:100%;text-align:left;background:none;border:0;color:inherit;font:inherit;cursor:pointer;padding:16px 18px;min-height:44px}
+.ws b{display:block;font-size:17px;color:#fff;margin:0}
+.ws span{display:block;margin-top:4px;color:#B6BDC9;font-size:15px}
+.pbar{position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--lime)}
+.wlist li.on .pbar{animation:barfill var(--dur,5s) linear forwards}
+.watch.paused .wlist li.on .pbar{animation-play-state:paused}
+@keyframes barfill{to{width:100%}}
+.wplay{justify-self:start;font:600 14px Inter,sans-serif;min-height:44px;padding:10px 20px;border-radius:999px;border:1px solid rgba(255,255,255,.28);background:transparent;color:#fff;cursor:pointer}
+.wplay:hover{background:rgba(255,255,255,.12)}
+.wplay .t-play{display:none}.watch.paused .wplay .t-play{display:inline}.watch.paused .wplay .t-pause{display:none}
+.phones{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:36px 28px;margin-top:44px;justify-items:center}
+.pcard{margin:0;display:flex;flex-direction:column;align-items:center;gap:20px;max-width:300px}
+.pcard figcaption b{display:block;font-size:19px;margin-bottom:6px}
+.pcard figcaption span{color:#4B5563;font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.chips span{border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.07);color:#E5E7EB;font-size:15px;font-weight:600;padding:9px 16px;border-radius:999px}
+.maker{display:flex;flex-wrap:wrap;gap:20px 40px;align-items:center;justify-content:space-between;margin-top:28px;border:1px solid #D5D9E0;border-radius:18px;padding:28px;background:var(--soft)}
+.maker h3{margin:0 0 6px;font-size:21px}.maker p{margin:0;color:#4B5563;max-width:560px}
+@media (max-width:820px){.watch{grid-template-columns:1fr;justify-items:center;gap:28px}.wside{width:100%}}
+@media (max-width:720px){#watch{border-radius:26px 26px 0 0;margin-top:-26px;padding:64px 0 100px}.ws{padding:14px 16px}.maker{padding:22px}.maker .btn{width:100%}}
 </style></head>
 <body>
 
@@ -320,6 +360,7 @@ header nav a{padding:12px 14px;font-size:17px;border-radius:12px}header nav a:ho
     </a>
     <nav aria-label="Main">
       <a href="#how">How it works</a>
+      <a href="#watch">Watch it</a>
       <a href="#app">Inside the app</a>
       <a href="#pilot">Paid pilot</a>
       <a href="#faq">FAQ</a>
@@ -356,7 +397,7 @@ header nav a{padding:12px 14px;font-size:17px;border-radius:12px}header nav a:ho
           <div class="subj">Thanks for choosing Your Business Name</div>
           <div>Hi Maria,</div>
           <div>Thank you for choosing us. If you have a minute, we would really appreciate your honest feedback. It helps other people find us and helps us improve.</div>
-          <div class="mock-btn">Share your experience</div>
+          <div>Share your experience:<br><span class="mock-link">https://app.uplein.com/r/k3x9a</span></div>
           <div>Thank you,<br>Your Business Name</div>
         </div>
         <div class="mock-foot">Your business address &middot; Unsubscribe</div>
@@ -389,6 +430,51 @@ header nav a{padding:12px 14px;font-size:17px;border-radius:12px}header nav a:ho
     <div class="step"><span class="num">4</span><b>Send and follow up</b><span>Send a friendly request with one button. One gentle reminder is available. See who got it and who opened the link, and mark the reviews you receive.</span></div>
   </div>
   <p class="sub" style="margin-top:28px">Prefer to talk first? A short call is optional: we show you the app in about 15 minutes and answer your questions.</p>
+</div></section>
+
+<section id="watch"><div class="wrap">
+  <p class="eyebrow">See it in action</p>
+  <h2>How to use it, in 30 seconds.</h2>
+  <p class="sub">Pick a way. The steps play by themselves. Tap any step to jump to it.</p>
+  <div class="tabs" role="tablist" aria-label="Ways to ask">
+    <button type="button" role="tab" aria-selected="true" data-tab="0">Email</button>
+    <button type="button" role="tab" aria-selected="false" data-tab="1">QR code</button>
+    <button type="button" role="tab" aria-selected="false" data-tab="2">Text from your phone</button>
+  </div>
+  <div class="watch">
+    <div class="phone watch-phone"><img id="wImg" src="img/app-ask.jpg" alt="The Uplein app on a phone" width="390" height="844"><span class="tap" id="wTap" hidden></span></div>
+    <div class="wside">
+      <ol class="wlist on">
+        <li data-img="img/app-ask.jpg" data-tap="50,29"><button type="button" class="ws"><b>Type who you want to ask</b><span>Open Ask. Add a name and an email. A phone number is optional.</span></button><i class="pbar"></i></li>
+        <li data-img="img/app-ask-filled.jpg" data-tap="11,61"><button type="button" class="ws"><b>Confirm they agreed</b><span>Tick the box that this customer agreed to hear from you. No consent, no email.</span></button><i class="pbar"></i></li>
+        <li data-img="img/app-ask-filled.jpg" data-tap="27,74"><button type="button" class="ws"><b>Press one button</b><span>Add customer sends the request in your business name. It takes about ten seconds.</span></button><i class="pbar"></i></li>
+        <li data-img="img/app-message.jpg"><button type="button" class="ws"><b>See what they get</b><span>A short, plain message with your link and an unsubscribe line.</span></button><i class="pbar"></i></li>
+      </ol>
+      <ol class="wlist">
+        <li data-img="img/app-share.jpg" data-tap="70,96"><button type="button" class="ws"><b>Open the QR code tab</b><span>Your code is ready as soon as your Google review link is saved in Settings.</span></button><i class="pbar"></i></li>
+        <li data-img="img/app-share.jpg" data-tap="31,67"><button type="button" class="ws"><b>Show it or print it</b><span>Customers scan it with their camera and land on your Google review page. Put it on your counter, your truck or your receipts.</span></button><i class="pbar"></i></li>
+      </ol>
+      <ol class="wlist">
+        <li data-img="img/app-text.jpg"><button type="button" class="ws"><b>Find the ready text</b><span>Under the QR code is a message with your link, ready to send.</span></button><i class="pbar"></i></li>
+        <li data-img="img/app-text.jpg" data-tap="30,61"><button type="button" class="ws"><b>Tap Open in Messages</b><span>Your own messages app opens with the text already written.</span></button><i class="pbar"></i></li>
+        <li data-img="img/app-text.jpg"><button type="button" class="ws"><b>Press send</b><span>It goes from your own number, one customer at a time, only to people who are happy to hear from you.</span></button><i class="pbar"></i></li>
+      </ol>
+      <button type="button" class="wplay" id="wPlay" aria-pressed="false"><span class="t-pause">Pause</span><span class="t-play">Play</span></button>
+    </div>
+  </div>
+  <p class="demo-note">Real screenshots of the app, with sample data. Nothing here was sent to a real customer.</p>
+</div></section>
+
+<section id="ways" class="band light"><div class="wrap">
+  <p class="eyebrow">Three ways to ask</p>
+  <h2>Ask the way that fits the moment.</h2>
+  <p class="sub">The same app, all on your phone. If an email lands in a promotions or spam tab, the QR code and a text still reach your customer.</p>
+  <div class="phones">
+    <figure class="pcard"><div class="phone"><img src="img/app-ask-filled.jpg" alt="Adding a customer in the Uplein app" loading="lazy" width="390" height="844"></div><figcaption><b>Email</b><span>Add a customer and press one button. The request goes out in your business name.</span></figcaption></figure>
+    <figure class="pcard"><div class="phone"><img src="img/app-share.jpg" alt="The QR code screen in the Uplein app" loading="lazy" width="390" height="844"></div><figcaption><b>QR code</b><span>Show it on your phone, or print the card. Customers scan it and land on your Google page.</span></figcaption></figure>
+    <figure class="pcard"><div class="phone"><img src="img/app-text.jpg" alt="The text message screen in the Uplein app" loading="lazy" width="390" height="844"></div><figcaption><b>Text from your phone</b><span>Tap once and your own messages app opens with the text and link ready.</span></figcaption></figure>
+  </div>
+  <p class="demo-note" style="color:#4B5563">Real screenshots of the app, with sample data. Text messages sent by the app itself are coming later. Texting the link from your own phone works today.</p>
 </div></section>
 
 <section id="app"><div class="wrap">
@@ -462,6 +548,10 @@ header nav a{padding:12px 14px;font-size:17px;border-radius:12px}header nav a:ho
       </ul>
     </div>
   </div>
+  <div class="maker">
+    <div><h3>Talk to the person who builds it.</h3><p>Uplein is built and run by Varlein. When you write to us, the person who builds the app reads your message.</p></div>
+    <a class="btn" href="#demo">Request a demo</a>
+  </div>
 </div></section>
 
 <div id="who" class="alt">
@@ -473,6 +563,10 @@ header nav a{padding:12px 14px;font-size:17px;border-radius:12px}header nav a:ho
       <div class="card"><b>Salons and barbers</b><span>Turn regulars into reviews.</span></div>
       <div class="card"><b>Home services and installers</b><span>Tile, plumbing, HVAC and more. From the job site to their inbox.</span></div>
     </div>
+    <div class="chips" aria-label="Businesses that use it">
+      <span>Auto repair</span><span>Detailing</span><span>Plumbing</span><span>HVAC</span><span>Electrical</span><span>Roofing</span><span>Painting</span><span>Cleaning</span><span>Landscaping</span><span>Pressure washing</span><span>Pest control</span><span>Handyman</span><span>Flooring and tile</span><span>Salons</span><span>Barbershops</span>
+    </div>
+    <p class="sub" style="color:#B6BDC9;margin-top:18px">Not on the list? If you serve customers directly and have a Google profile, Uplein probably fits.</p>
   </section>
 </div>
 
@@ -551,7 +645,7 @@ header nav a{padding:12px 14px;font-size:17px;border-radius:12px}header nav a:ho
     <details><summary>Do I have to call you?</summary><p>No. You can set everything up yourself. A short call is optional, and early customers get personal help.</p></details>
     <details><summary>What do I need to start?</summary><p>Your business address, the link to your Google review page, and customers who agreed to hear from you.</p></details>
     <details><summary>How do I add customers?</summary><p>Type one in from your phone, import a spreadsheet, or print your QR code so customers scan it themselves.</p></details>
-    <details><summary>Do my customers need an account?</summary><p>No. They get an email with a button to your Google review page, or scan your QR code.</p></details>
+    <details><summary>Do my customers need an account?</summary><p>No. They get a short message with a link to your Google review page, or scan your QR code.</p></details>
     <details><summary>Which review sites are supported?</summary><p>Google first, with your review link and a QR code. More may follow.</p></details>
     <details><summary>Do you send text messages?</summary><p>Not yet. Email comes first, and texts will follow once approved for your business, which takes some time.</p></details>
     <details><summary>Is there a free trial?</summary><p>No. We start with a short demo and a paid pilot for early customers. See the Paid pilot section for the details.</p></details>
@@ -569,7 +663,7 @@ header nav a{padding:12px 14px;font-size:17px;border-radius:12px}header nav a:ho
       <span style="font-size:14px">Honest reviews for local businesses. A Varlein product.</span>
     </div>
     <div style="display:flex;flex-wrap:wrap;gap:56px">
-      <div class="fcol"><b>Product</b><a href="#how">How it works</a><a href="#app">Inside the app</a><a href="#pilot">Paid pilot</a><a href="#faq">FAQ</a></div>
+      <div class="fcol"><b>Product</b><a href="#how">How it works</a><a href="#watch">Watch it</a><a href="#app">Inside the app</a><a href="#pilot">Paid pilot</a><a href="#faq">FAQ</a></div>
       <div class="fcol"><b>Legal</b><a href="https://app.uplein.com/terms" target="_blank" rel="noopener">Terms</a><a href="https://app.uplein.com/privacy" target="_blank" rel="noopener">Privacy Policy</a></div>
       <div class="fcol"><b>Contact</b><a href="mailto:contact@varlein.com">contact@varlein.com</a></div>
     </div>
@@ -783,7 +877,60 @@ header nav a{padding:12px 14px;font-size:17px;border-radius:12px}header nav a:ho
     "A fair price we agree on together before you start.":"Un precio justo que acordamos juntos antes de empezar.",
     "A short pilot. We agree on the length together.":"Un piloto corto. Acordamos la duración juntos.",
     "We talk when it ends and decide together whether to continue.":"Al terminar, hablamos y decidimos juntos si continuar."
-  });  var DICT = {ru:RU, es:ES};
+  });
+  Object.assign(RU, {
+    "Watch it":"Смотреть","See it in action":"Посмотрите в деле","How to use it, in 30 seconds.":"Как пользоваться: за 30 секунд.",
+    "Pick a way. The steps play by themselves. Tap any step to jump to it.":"Выберите способ. Шаги проигрываются сами. Нажмите на любой шаг, чтобы перейти к нему.",
+    "Text from your phone":"Сообщение с вашего телефона","Pause":"Пауза","Play":"Играть",
+    "Type who you want to ask":"Введите, кого хотите попросить","Open Ask. Add a name and an email. A phone number is optional.":"Откройте «Попросить». Добавьте имя и email. Телефон по желанию.",
+    "Confirm they agreed":"Подтвердите согласие","Tick the box that this customer agreed to hear from you. No consent, no email.":"Отметьте, что клиент согласился получать от вас сообщения. Нет согласия — нет письма.",
+    "Press one button":"Нажмите одну кнопку","Add customer sends the request in your business name. It takes about ten seconds.":"«Добавить клиента» отправляет просьбу от имени вашего бизнеса. Это занимает секунд десять.",
+    "See what they get":"Посмотрите, что получит клиент","A short, plain message with your link and an unsubscribe line.":"Короткое простое сообщение с вашей ссылкой и строкой для отписки.",
+    "Open the QR code tab":"Откройте вкладку QR-кода","Your code is ready as soon as your Google review link is saved in Settings.":"Код готов, как только ваша ссылка на отзывы Google сохранена в Настройках.",
+    "Show it or print it":"Покажите или распечатайте","Customers scan it with their camera and land on your Google review page. Put it on your counter, your truck or your receipts.":"Клиенты наводят камеру и попадают на вашу страницу отзывов в Google. Поставьте код на стойку, машину или чеки.",
+    "Find the ready text":"Найдите готовый текст","Under the QR code is a message with your link, ready to send.":"Под QR-кодом лежит сообщение с вашей ссылкой, готовое к отправке.",
+    "Tap Open in Messages":"Нажмите «Открыть в Сообщениях»","Your own messages app opens with the text already written.":"Откроется ваше приложение сообщений с готовым текстом.",
+    "Press send":"Нажмите «Отправить»","It goes from your own number, one customer at a time, only to people who are happy to hear from you.":"Оно уйдёт с вашего номера, по одному клиенту, только тем, кто рад получить сообщение от вас.",
+    "Real screenshots of the app, with sample data. Nothing here was sent to a real customer.":"Настоящие скриншоты приложения с примерами данных. Ничего из этого не отправлялось реальным клиентам.",
+    "Three ways to ask":"Три способа попросить","Ask the way that fits the moment.":"Просите так, как удобно в моменте.",
+    "The same app, all on your phone. If an email lands in a promotions or spam tab, the QR code and a text still reach your customer.":"Одно приложение, всё на телефоне. Если письмо попало во вкладку «Промоакции» или в спам, QR-код и сообщение всё равно дойдут до клиента.",
+    "Add a customer and press one button. The request goes out in your business name.":"Добавьте клиента и нажмите одну кнопку. Просьба уйдёт от имени вашего бизнеса.",
+    "Show it on your phone, or print the card. Customers scan it and land on your Google page.":"Покажите его на телефоне или распечатайте карточку. Клиенты наводят камеру и попадают на вашу страницу Google.",
+    "Tap once and your own messages app opens with the text and link ready.":"Одно нажатие, и откроется ваше приложение сообщений с готовым текстом и ссылкой.",
+    "Real screenshots of the app, with sample data. Text messages sent by the app itself are coming later. Texting the link from your own phone works today.":"Настоящие скриншоты приложения с примерами данных. Сообщения, которые отправляет само приложение, появятся позже. Отправить ссылку со своего телефона можно уже сегодня.",
+    "Auto repair":"Автосервис","Detailing":"Детейлинг","Plumbing":"Сантехника","HVAC":"Отопление и кондиционеры","Electrical":"Электрика","Roofing":"Кровля","Painting":"Покраска","Cleaning":"Клининг","Landscaping":"Ландшафт","Pressure washing":"Мойка высоким давлением","Pest control":"Борьба с вредителями","Handyman":"Мастер на все руки","Flooring and tile":"Полы и плитка","Salons":"Салоны","Barbershops":"Барбершопы",
+    "Not on the list? If you serve customers directly and have a Google profile, Uplein probably fits.":"Вашего дела нет в списке? Если вы работаете с клиентами напрямую и у вас есть профиль в Google, Uplein, скорее всего, подойдёт.",
+    "Talk to the person who builds it.":"Поговорите с тем, кто его делает.","Uplein is built and run by Varlein. When you write to us, the person who builds the app reads your message.":"Uplein создаёт и ведёт Varlein. Когда вы нам пишете, ваше сообщение читает тот, кто делает приложение.",
+    "Share your experience:":"Поделитесь впечатлениями:",
+    "No. They get a short message with a link to your Google review page, or scan your QR code.":"Нет. Они получают короткое сообщение со ссылкой на вашу страницу отзывов в Google или наводят камеру на ваш QR-код."
+  });
+  Object.assign(ES, {
+    "Watch it":"Verlo","See it in action":"Véalo en acción","How to use it, in 30 seconds.":"Cómo usarlo, en 30 segundos.",
+    "Pick a way. The steps play by themselves. Tap any step to jump to it.":"Elija una forma. Los pasos se reproducen solos. Toque cualquier paso para ir a él.",
+    "Text from your phone":"Mensaje desde su teléfono","Pause":"Pausa","Play":"Reproducir",
+    "Type who you want to ask":"Escriba a quién quiere pedírselo","Open Ask. Add a name and an email. A phone number is optional.":"Abra «Pedir». Añada un nombre y un correo. El teléfono es opcional.",
+    "Confirm they agreed":"Confirme que aceptó","Tick the box that this customer agreed to hear from you. No consent, no email.":"Marque que este cliente aceptó recibir mensajes suyos. Sin consentimiento, no hay correo.",
+    "Press one button":"Pulse un botón","Add customer sends the request in your business name. It takes about ten seconds.":"«Añadir cliente» envía la solicitud a nombre de su negocio. Toma unos diez segundos.",
+    "See what they get":"Vea lo que recibe","A short, plain message with your link and an unsubscribe line.":"Un mensaje corto y sencillo con su enlace y una línea para darse de baja.",
+    "Open the QR code tab":"Abra la pestaña del código QR","Your code is ready as soon as your Google review link is saved in Settings.":"Su código está listo en cuanto guarda el enlace de reseñas de Google en Ajustes.",
+    "Show it or print it":"Muéstrelo o imprímalo","Customers scan it with their camera and land on your Google review page. Put it on your counter, your truck or your receipts.":"Los clientes lo escanean con la cámara y llegan a su página de reseñas de Google. Póngalo en el mostrador, la camioneta o los recibos.",
+    "Find the ready text":"Encuentre el texto listo","Under the QR code is a message with your link, ready to send.":"Debajo del código QR hay un mensaje con su enlace, listo para enviar.",
+    "Tap Open in Messages":"Toque «Abrir en Mensajes»","Your own messages app opens with the text already written.":"Se abre su app de mensajes con el texto ya escrito.",
+    "Press send":"Pulse enviar","It goes from your own number, one customer at a time, only to people who are happy to hear from you.":"Sale desde su propio número, a un cliente a la vez, solo a quienes están contentos de saber de usted.",
+    "Real screenshots of the app, with sample data. Nothing here was sent to a real customer.":"Capturas reales de la app, con datos de ejemplo. Nada de esto se envió a un cliente real.",
+    "Three ways to ask":"Tres formas de pedir","Ask the way that fits the moment.":"Pida de la forma que encaje con el momento.",
+    "The same app, all on your phone. If an email lands in a promotions or spam tab, the QR code and a text still reach your customer.":"La misma app, todo en su teléfono. Si un correo cae en promociones o en spam, el código QR y un mensaje igual llegan a su cliente.",
+    "Add a customer and press one button. The request goes out in your business name.":"Añada un cliente y pulse un botón. La solicitud sale a nombre de su negocio.",
+    "Show it on your phone, or print the card. Customers scan it and land on your Google page.":"Muéstrelo en su teléfono o imprima la tarjeta. Los clientes lo escanean y llegan a su página de Google.",
+    "Tap once and your own messages app opens with the text and link ready.":"Un toque y se abre su app de mensajes con el texto y el enlace listos.",
+    "Real screenshots of the app, with sample data. Text messages sent by the app itself are coming later. Texting the link from your own phone works today.":"Capturas reales de la app, con datos de ejemplo. Los mensajes de texto que envía la propia app llegarán más adelante. Enviar el enlace desde su propio teléfono funciona hoy.",
+    "Auto repair":"Taller mecánico","Detailing":"Detallado de autos","Plumbing":"Plomería","HVAC":"Climatización","Electrical":"Electricidad","Roofing":"Techos","Painting":"Pintura","Cleaning":"Limpieza","Landscaping":"Jardinería","Pressure washing":"Lavado a presión","Pest control":"Control de plagas","Handyman":"Manitas","Flooring and tile":"Pisos y azulejos","Salons":"Salones","Barbershops":"Barberías",
+    "Not on the list? If you serve customers directly and have a Google profile, Uplein probably fits.":"¿No está en la lista? Si atiende clientes directamente y tiene un perfil de Google, Uplein probablemente le sirve.",
+    "Talk to the person who builds it.":"Hable con quien lo construye.","Uplein is built and run by Varlein. When you write to us, the person who builds the app reads your message.":"Uplein lo crea y lo dirige Varlein. Cuando nos escribe, su mensaje lo lee la persona que construye la app.",
+    "Share your experience:":"Comparta su experiencia:",
+    "No. They get a short message with a link to your Google review page, or scan your QR code.":"No. Reciben un mensaje corto con un enlace a su página de reseñas de Google, o escanean su código QR."
+  });
+  var DICT = {ru:RU, es:ES};
   var TITLES = {en:document.title, ru:'Uplein | Больше настоящих отзывов без навязчивости', es:'Uplein | Más reseñas reales, sin insistir'};
   var lang = 'en', orig = new Map(), nodes = [];
   [].forEach.call(document.querySelectorAll('select option'), function(o){ if(!o.hasAttribute('value')) o.value = o.textContent.trim(); });
@@ -850,7 +997,7 @@ header nav a{padding:12px 14px;font-size:17px;border-radius:12px}header nav a:ho
   window.addEventListener('scroll', spy, {passive:true}); spy();
   if(!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   root.classList.add('js');
-  var groups = ['.steps>*','.cards>*','.who>*','.honest li','.faq details','.demo-copy','.form','.appdemo>*','.cols2>*','.pilotgrid>*'];
+  var groups = ['.steps>*','.cards>*','.who>*','.honest li','.faq details','.demo-copy','.form','.appdemo>*','.cols2>*','.pilotgrid>*','.phones>*','.chips span','.maker'];
   var seen = new Set();
   function mark(el, delay){ if(seen.has(el)) return; seen.add(el); el.classList.add('reveal'); el.style.setProperty('--d', delay+'s'); io.observe(el); }
   var io = new IntersectionObserver(function(entries){
@@ -912,6 +1059,48 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false);}
     c.addEventListener('pointermove', function(e){ pos(e); if(!s.raf) s.raf = requestAnimationFrame(tick); });
     c.addEventListener('pointerleave', function(){ c.classList.remove('lit'); });
   });
+})();
+</script>
+<script>
+/* "See it in action": steps play by themselves (not when the visitor prefers less motion), tap a step to jump to it */
+(function(){
+  var root = document.getElementById('watch'); if(!root) return;
+  var tabs = [].slice.call(root.querySelectorAll('.tabs button')), lists = [].slice.call(root.querySelectorAll('.wlist'));
+  var img = document.getElementById('wImg'), tap = document.getElementById('wTap'), play = document.getElementById('wPlay'), box = root.querySelector('.watch');
+  var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var DUR = 5000, cur = 0, tabIdx = 0, timer = 0, playing = !calm, visible = false;
+  root.style.setProperty('--dur', (DUR/1000) + 's'); box.style.setProperty('--dur', (DUR/1000) + 's');
+  lists.forEach(function(l){ [].forEach.call(l.children, function(li){ var s = li.getAttribute('data-img'); if(s){ var p = new Image(); p.src = s; } }); });
+  function items(){ return [].slice.call(lists[tabIdx].children); }
+  function schedule(){ clearTimeout(timer); if(playing && visible) timer = setTimeout(function(){ show(cur + 1); }, DUR); }
+  function show(i){
+    var it = items(); cur = (i + it.length) % it.length;
+    it.forEach(function(li, k){ li.classList.toggle('on', k === cur); });
+    var li = it[cur], src = li.getAttribute('data-img');
+    if(img.getAttribute('src') !== src){ img.style.opacity = 0; setTimeout(function(){ img.setAttribute('src', src); img.style.opacity = 1; }, 160); }
+    var t = li.getAttribute('data-tap');
+    if(t){ var p = t.split(','); tap.style.left = p[0] + '%'; tap.style.top = p[1] + '%'; tap.hidden = false; } else { tap.hidden = true; }
+    var bar = li.querySelector('.pbar'); bar.style.animation = 'none'; void bar.offsetWidth; bar.style.animation = '';
+    schedule();
+  }
+  function pick(k){
+    tabIdx = k;
+    tabs.forEach(function(b, j){ b.setAttribute('aria-selected', j === k ? 'true' : 'false'); });
+    lists.forEach(function(l, j){ l.classList.toggle('on', j === k); });
+    show(0);
+  }
+  tabs.forEach(function(b, k){ b.addEventListener('click', function(){ pick(k); }); });
+  lists.forEach(function(l){ [].forEach.call(l.children, function(li, k){ li.querySelector('.ws').addEventListener('click', function(){ show(k); }); }); });
+  function setPlay(){
+    box.classList.toggle('paused', !playing);
+    play.setAttribute('aria-pressed', playing ? 'false' : 'true');
+  }
+  play.addEventListener('click', function(){ playing = !playing; setPlay(); schedule(); });
+  if(calm){ play.hidden = true; }
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ es.forEach(function(e){ visible = e.isIntersecting; if(visible){ show(cur); } else { clearTimeout(timer); } }); }, {threshold:.35}).observe(box);
+  } else { visible = true; }
+  show(0);
 })();
 </script></body>
 </html>
